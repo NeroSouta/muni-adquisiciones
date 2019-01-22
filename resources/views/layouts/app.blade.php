@@ -11,7 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//bootswatch.com/3/cerulean/bootstrap.css">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -28,8 +29,9 @@
                     </button>
 
                     <!-- Branding Image -->
+                        &nbsp;
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <img style="width:30%" src="images/logos-02.png">
                     </a>
                 </div>
 
@@ -72,6 +74,9 @@
         </nav>
 
         @yield('content')
+
+
+
     </div>
 
     <!-- Scripts -->

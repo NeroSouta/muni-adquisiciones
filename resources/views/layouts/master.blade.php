@@ -11,7 +11,7 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- Nueva wa -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -42,6 +42,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="//bootswatch.com/3/cerulean/bootstrap.css">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
   </head>
@@ -71,7 +72,7 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
-      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+      <ul class="navbar-nav navbar-right">
                         @if (Auth::guest())
                             <li class="nav-item active">
                               <a class="nav-link" href="{{ route('login') }}">Acceder <span class="sr-only">(current)</span></a>
