@@ -23,7 +23,8 @@ Route::get('create','DocumentController@create');
 Route::post('store','DocumentController@store');
 Route::get('generate-docx', 'DocumentController@generateDocx');
 
-Route::get('/start', function () {
-    return view('start');
-});
+Route::get('/start', 'HomeController@start');
 
+Route::get('/configuracion-informe', function () {
+    return view('configuration');
+});

@@ -61,17 +61,30 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
+      @if (Auth::guest())
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+        </ul>
+      @else
+      <ul class="navbar-nav mr-auto">
+        <li class="dropdown">
+          <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Informes
+          </a>
+          <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="#">
+                     Crear Configuración de Informe
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                     Ver Configuraciones pasadas
+                    </a>
+                 </li>
+            </ul>
         </li>
       </ul>
+      @endif
       <ul class="navbar-nav navbar-right">
                         @if (Auth::guest())
                             <li class="nav-item active">
@@ -82,12 +95,17 @@
                             </li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} 
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="#">
+                                            Mi Perfil
+                                        </a>
+                                    </li>
+                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
