@@ -51,7 +51,7 @@
   <div class="contenedor-nav">
   <nav id="nav-principal" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #0062d1">
     <div class="col col-lg-2"" id="contenedor-logo">
-                      <a id="logo1" href="#"">
+                      <a id="logo1" href="{{ url('/') }}">
       <img style="width: " src="images/logos-02.png">
     </a>
     </div>

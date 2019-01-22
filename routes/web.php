@@ -26,3 +26,4 @@ Route::get('generate-docx', 'DocumentController@generateDocx');
 Route::get('/start', function () {
     return view('start');
 });
+
