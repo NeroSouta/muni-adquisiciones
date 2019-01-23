@@ -18,8 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->smallInteger('role')->default(2); // rol 0 = admin; rol 1 = comprador
+            $table->string('rut')->unique();
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

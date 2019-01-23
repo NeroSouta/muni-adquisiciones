@@ -64,6 +64,26 @@
       @if (Auth::guest())
       <ul class="navbar-nav mr-auto">
         </ul>
+      @elseif(Auth::user()->role != 0)
+      <ul class="navbar-nav mr-auto">
+        <li class="dropdown">
+          <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Informes
+          </a>
+          <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="#">
+                     Crear Configuración de Informe
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                     Ver Configuraciones pasadas
+                    </a>
+                 </li>
+            </ul>
+        </li>
+      </ul>
       @else
       <ul class="navbar-nav mr-auto">
         <li class="dropdown">
@@ -79,6 +99,23 @@
                   <li>
                     <a href="#">
                      Ver Configuraciones pasadas
+                    </a>
+                 </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Usuarios
+          </a>
+          <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="/crear-usuario">
+                     Registrar Nuevo Usuario
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                     Ver Usuarios
                     </a>
                  </li>
             </ul>
