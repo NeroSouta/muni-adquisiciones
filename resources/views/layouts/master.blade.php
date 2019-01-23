@@ -109,15 +109,10 @@
           </a>
           <ul class="dropdown-menu" role="menu">
                   <li>
-                    <a href="/crear-usuario">
-                     Registrar Nuevo Usuario
+                    <a href="{{ url('/usuarios') }}">
+                     Usuarios
                     </a>
                   </li>
-                  <li>
-                    <a href="#">
-                     Ver Usuarios
-                    </a>
-                 </li>
             </ul>
         </li>
       </ul>

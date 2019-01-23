@@ -15,7 +15,7 @@
                             <label for="rut" class="col-md-4 control-label">Rut</label>
 
                             <div class="col-md-6">
-                                <input id="rut" type="rut" class="form-control" name="rut" value="{{ old('rut') }}" required autofocus>
+                                <input id="rut" type="string" class="form-control" name="rut" value="{{ old('rut') }}" required autofocus>
 
                                 @if ($errors->has('rut'))
                                     <span class="help-block">
