@@ -28,3 +28,13 @@ Route::get('/start', 'HomeController@start');
 Route::get('/configuracion-informe', function () {
     return view('configuration');
 });
+
+
+Route::group(['middleware' => 'admin', 'namespace' =>'Admin'], function () {
+    
+    Route::get('/usuarios', 'UserController@index');
+    Route::post('/usuarios', 'UserController@store');
+	Route::get('/usuario/{id}', 'UserController@edit');
+	Route::post('/usuario/{id}', 'UserController@update');
+
+});
