@@ -23,13 +23,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('create','DocumentController@create');
-Route::post('store','DocumentController@store');
-Route::get('generate-docx', 'DocumentController@generateDocx');
+Route::get('create','DocumentController@create'); //Extra
+Route::post('store','DocumentController@store');	//Extra
+Route::get('generate-docx', 'DocumentController@generateDocx');//Extra
 
-Route::get('/start', 'HomeController@start');
+Route::get('/start', 'HomeController@start');//Extra
 
-Route::get('/configuracion-informe', function () {
+Route::get('/configuracion-informe', function () {	//Extra
     return view('configuration');
 });
 
@@ -39,6 +39,10 @@ Route::group(['middleware' => 'admin', 'namespace' =>'Admin'], function () {
     Route::get('/usuarios', 'UserController@index');
     Route::post('/usuarios', 'UserController@store');
 	Route::get('/usuario/{id}', 'UserController@edit');
+
 	Route::post('/usuario/{id}', 'UserController@update');
+
+	Route::get('/usuario/{id}/eliminar', 'UserController@delete');
+
 
 });

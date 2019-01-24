@@ -124,6 +124,7 @@
             </thead>
             <tbody>
                 @foreach ($users as $user)
+                @if(Auth::user()->rut != $user->rut)
                 <tr>
                     <td>{{$user->rut}}</td>
                     <td>{{$user->name}}</td>
@@ -133,12 +134,13 @@
                         Editar
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
-                        <a href="" class="btn btn-danger">
+                        <a href="/usuario/{{$user->id}}/eliminar" class="btn btn-danger">
                         Borrar
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>

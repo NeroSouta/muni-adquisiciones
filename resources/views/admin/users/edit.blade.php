@@ -100,7 +100,7 @@
         </div>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading">Usuarios del Sistema</div>
+        <div class="panel-heading">Configuraciones del Usuario</div>
 
         <div class="panel-body">
         <table class="table">

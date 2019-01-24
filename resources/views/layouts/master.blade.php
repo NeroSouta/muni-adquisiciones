@@ -133,7 +133,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="#">
+                                        <a href="/usuario/{{Auth::user()->id}}">
                                             Mi Perfil
                                         </a>
                                     </li>
