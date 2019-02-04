@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+/**
+* Es el controlador de la autenticación de cualquier usuario.
+*
+*/
 class HomeController extends Controller
 {
     /**

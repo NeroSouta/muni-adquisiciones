@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\TemplateProcessor;
+/**
+* Es el controlador del manejo de documentos word.
+*
+*/
 class DocumentController extends Controller
 {
     /**
@@ -34,15 +38,6 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $section = $phpWord->addSection();
-        $text = $section->addText($request->get('name'));
-        $text = $section->addText($request->get('email'));
-        $text = $section->addText($request->get('number'),array('name'=>'Arial','size' => 20,'bold' => true));
-       
-        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-        $objWriter->save('Appdividend.docx');
-        return response()->download(public_path('Appdividend.docx'));
     }
 
     /**
@@ -90,20 +85,24 @@ class DocumentController extends Controller
         //
     }
 
-
+    //Funcion que sirve para un manejo simple de los documentos, sirve para ejercitar o ejemplom, ocupa el documento como plantilla llamado "Template.docx", el cual se encuentra en la carpeta storage del proyecto.
      public function generateDocx()
-    {
+    {   
+        //Primero se crea la instancia o objeto nuevo llamado templateWord, el cual usa el archivo TemplateProcessor.php, el cual se encuentra en vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php para más información
         $templateWord = new TemplateProcessor(storage_path('Template.docx'));
+        //Luego se declaran las variables y se asignan sus valores
         $name = 'Fabián';
         $date = '20/10/20';
         $street = 'Yungay 379';
         $city = 'Arica';
 
+        //A continuacións se insertan los valores de las variables en donde se encuentren declaradas estas variables en la plantilla, el primer argumento es como se llama la variable en el archivo .docx y la segunda variable es la que se declaro arriba
         $templateWord->setValue('name', $name);
         $templateWord->setValue('date', $date);
         $templateWord->setValue('street', $street);
         $templateWord->setValue('city', $city);
 
+        //Finalmente se guardan los cambios y se descarga con las lineas de abajo, todo en un nuevo documento, manteniendo así la plantilla sin modificaciones.
         $templateWord->saveAs('DocumentoNuevo.docx');
 
         header("Content-disposition: attachment;filename=DocumentoNuevo.docx; charset=iso-8859-1");
@@ -111,7 +110,7 @@ class DocumentController extends Controller
 
     
     }
-
+    //Funcion que sirve para un manejo mas completo de los documentos, sirve para ejercitar o ejemplom, ocupa el documento como plantilla llamado "Template.docx", el cual se encuentra en la carpeta storage del proyecto.
     public function generar()
     {
         $templateProcessor = new TemplateProcessor(storage_path('Sample_07_TemplateCloneRow.docx'));

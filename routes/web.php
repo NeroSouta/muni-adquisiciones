@@ -15,15 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/welcome2', function () {
-	return view('welcome_copia');
-});
-
+// Rutas de la autorización
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Juego con la Documentación de wor
+//Juego con la Documentación de word
 Route::get('create','DocumentController@create'); //Extra
 Route::post('store','DocumentController@store');	//Extra
 Route::get('generate-docx', 'DocumentController@generateDocx');//Extra
