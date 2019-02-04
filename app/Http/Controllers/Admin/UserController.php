@@ -6,6 +6,8 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User; 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
 
 class UserController extends Controller
 {
@@ -17,6 +19,9 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
+
+        
+
 
         $rules =[
             'name' => 'required|string|max:255',
@@ -38,6 +43,10 @@ class UserController extends Controller
         $user->password = bcrypt($request->input('password'));
 
         $user->save();
+
+        $email = $request->input('email');
+        $dates = array('name'=>$request->input('name'), 'password'=>$request->input('password'));
+        $this->Email($dates, $email);
 
 
         return back()->with('notification', 'Usuario registrado exitosamente.');
@@ -76,6 +85,28 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return back()->with('notification', 'Usuario eliminado exitosamente.');
+    }
+
+        public function Email($dates, $email) {
+
+        Mail::send('emails.plantilla', $dates, function($message) use ($email){
+            $message->subject('Bienvenido a la Plataforma');
+            $message->to($email);
+            $message->from('no-repply_da@arica.cl', 'Portal de Departamento de Adquisiciones');
+
+        });
+    }
+
+    public function share(Request $request){
+        $name  = $request->get('name');
+        $email = $request->get('email');
+        $rut   = $request->get('rut');
+        $users = User::orderBy('id', 'DESC')
+            ->name($name)
+            ->email($email)
+            ->rut($rut)
+            ->paginate(4);
+        return view('admin.users.index', compact('users'));
     }
 
 }

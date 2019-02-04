@@ -14,7 +14,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
@@ -23,7 +23,7 @@
 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>Sticky Footer Navbar Template · Bootstrap</title>
+    <title>Portal del Departamento de Adquisiciones de la Municipalidad de Arica</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -77,9 +77,8 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                     Ver Configuraciones pasadas
-                    </a>
+                    <a href="{{ url('/configuraciones') }}">
+                     Ver configuraciones de Informe
                  </li>
             </ul>
         </li>
@@ -97,8 +96,8 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                     Ver Configuraciones pasadas
+                    <a href="{{ url('/configuraciones') }}">
+                     Ver configuraciones de Informe
                     </a>
                  </li>
             </ul>
@@ -110,7 +109,7 @@
           <ul class="dropdown-menu" role="menu">
                   <li>
                     <a href="{{ url('/usuarios') }}">
-                     Usuarios
+                     Configuración de Usuarios
                     </a>
                   </li>
             </ul>
@@ -133,7 +132,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="/usuario/{{Auth::user()->id}}">
+                                        <a href="/miperfil">
                                             Mi Perfil
                                         </a>
                                     </li>

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class User extends Authenticatable
 {
@@ -27,4 +28,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+        public function scopeName($query, $name)
+    {
+        if($name)
+            return $query->where('name', 'LIKE', "%$name%");
+    }
+    public function scopeEmail($query, $email)
+    {
+        if($email)
+            return $query->where('email', 'LIKE', "%$email%");
+    }
+    public function scopeRut($query, $rut)
+    {
+        if($rut)
+            return $query->where('rut', 'LIKE', "%$rut%");
+    }
 }

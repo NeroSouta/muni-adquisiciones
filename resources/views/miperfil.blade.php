@@ -20,7 +20,7 @@
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ $user->name}}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ Auth::user()->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -34,7 +34,7 @@
                             <label for="rut" class="col-md-4 control-label">Rut</label>
 
                             <div class="col-md-6">
-                                <input id="rut" type="text" class="form-control" name="rut" value="{{ $user->rut }}" required autofocus>
+                                <input id="rut" type="text" class="form-control" name="rut" value="{{ Auth::user()->rut }}" required autofocus>
 
                                 @if ($errors->has('rut'))
                                     <span class="help-block">
@@ -48,7 +48,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -62,8 +62,8 @@
                             <label for="role" class="col-md-4 control-label">Rol</label>
 
                             <div class="col-md-6">
-                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ $user->role }}" required>
-                                @if($user->role != 0)
+                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ Auth::user()->role }}" required>
+                                @if(Auth::user()->role  != 0)
                                 <option > 0 </option>
                                 <option selected> 1 </option>
                                 @else
@@ -77,6 +77,9 @@
                                 @endif
                             </select>
                             </div>
+
+
+
                             <!--<div class="col-md-6">
                                 <input id="role" type="smallInteger" class="form-control" name="role" value="{{ old('role') }}" required>
 
@@ -87,6 +90,14 @@
                                 @endif
                             </div>-->
                         </div>
+                           <div class="form-group">
+                            <label for="password" class="col-md-4 control-label">Contraseña <em> Ingrese en caso de desear cambiar la contraseña </em></label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password">
+
+                            </div>
+                            </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -101,6 +112,7 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Configuraciones del Usuario</div>
+
         <div class="panel-body">
         <table class="table">
             <thead>

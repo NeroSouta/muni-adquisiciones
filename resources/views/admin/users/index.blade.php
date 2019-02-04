@@ -111,7 +111,24 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Usuarios del Sistema</div>
-
+        <h1>  Busqueda de usuarios
+             {{ Form::open(['route' => 'buscar', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
+                <div class="form-group">
+                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) }}
+                </div>
+                <div class="form-group">
+                {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
+                </div>
+                <div class="form-group">
+                {{ Form::text('rut', null, ['class' => 'form-control', 'placeholder' => 'Rut']) }}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            {{ Form::close() }}
+        </h1>
         <div class="panel-body">
         <table class="table">
             <thead>
