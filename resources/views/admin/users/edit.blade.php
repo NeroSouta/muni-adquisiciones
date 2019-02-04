@@ -58,6 +58,27 @@
                             </div>
                         </div>
 
+                         <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">
+                            <label for="cargo" class="col-md-4 control-label">Cargo</label>
+
+                            <div class="col-md-6">
+                            <select id="cargo" type="smallInteger" class="custom-select" name="cargo" value="{{ old('cargo') }}" required>
+                                @if($user->role != 0)
+                                <option > Administrador </option>
+                                <option selected> Comprador </option>
+                                @else
+                                <option selected> Administrador </option>
+                                <option> Comprador </option>
+                                @endif
+                                @if ($errors->has('cargo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cargo') }}</strong>
+                                    </span>
+                                @endif
+                            </select>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
                             <label for="role" class="col-md-4 control-label">Rol</label>
 

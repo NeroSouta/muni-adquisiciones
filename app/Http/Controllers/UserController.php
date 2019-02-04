@@ -7,7 +7,10 @@ use App\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Mailable;
 
-
+/**
+* Es el controlador de cualquier usuario del sistema.
+*
+*/
 class UserController extends Controller
 {
     //Funcion que muestra el perfil de cada usuario.
@@ -24,7 +27,7 @@ class UserController extends Controller
     */
         public function miupdate(Request $request){
         
-        // Estas son las reglas que tendrá el usuario creado, las cuales pueden ser modificadas
+        // Estas son las reglas que tendrá el usuario modificado, las cuales pueden ser modificadas
             ini_set('max_execution_time', 60);
         $rules =[
             'name' => 'required|string|max:255',
@@ -32,6 +35,7 @@ class UserController extends Controller
             'role'=>'required',
             'rut'=>'required|string|max:13',
             'password' => 'nullable|min:6',
+            'cargo'=>'cargo|string',
         ];
 
 
@@ -39,6 +43,7 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->cargo = $request->input('cargo');
         $user->role = $request->input('role');
         $user->rut = $request->input('rut');
 
@@ -61,7 +66,7 @@ class UserController extends Controller
         return back()->with('notification', 'Usuario editado exitosamente.');
     }
 
-    // Email cuando se haga el cambio de contraseña desde la vista "Mi Perfil"
+    // La funcion Email cuando se haga el cambio de contraseña desde la vista "Mi Perfil"
     public function Email($dates, $email) {
 
         //El primer argumnto es la view "emails.plantilla"

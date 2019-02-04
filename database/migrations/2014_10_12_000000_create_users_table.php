@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->smallInteger('role')->default(2); // rol 0 = admin; rol 1 = comprador
             $table->string('rut')->unique();
+            $table->string('cargo');
             $table->rememberToken();
             $table->timestamps();
 

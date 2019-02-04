@@ -181,6 +181,9 @@ class DocumentController extends Controller
         echo file_get_contents('NuevoDocumento.docx');
     }
 
+    /*
+    * Es la funcion que permite el poder sobre escribir sobre la plantilla base de la aplicación, que funciona como hibrido de las dos funciones anteriores de pruebas, ocupa el documento como plantilla llamado "plantilla.docx", el cual se encuentra en la carpeta storage del proyecto.
+    */
     public function generarplantilla()
     {
         $templateWord = new TemplateProcessor(storage_path('plantilla.docx'));
@@ -200,6 +203,8 @@ class DocumentController extends Controller
         $templateWord->setValue('CodigoL', $CodigoL);
         $templateWord->setValue('NombreL', $NombreL);
 
+        // Todo esto sirve para poder crear filas dentro de una tabla, recordar que para crear estas filas, todos los atributos o variables que sea desean agregar deben de estar alineadas en la misma fila
+        // El array debe de tener como nombre de varibles los mismos que los del documento word.
         $values = array(
             array(
                 'rowValue'        => 1,
@@ -217,6 +222,7 @@ class DocumentController extends Controller
                 'nombreServicio'      => 'Servicio de fabricación y mantención de sables de luz',
             ),
         );
+        //finalmente se hace uso de esta funcion para realizar la creación de las filas, donde la variable 'rowValue' DEL DOCUMENTO WORD será el primario por decirlo así, por lo que todas las variables deben de estar alineadas o contenidas en la misma fila que éste.
         $templateWord->cloneRowAndSetValues('rowValue', $values);
     
         $templateWord->saveAs('plantillanueva.docx');

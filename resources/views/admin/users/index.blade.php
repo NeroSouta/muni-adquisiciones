@@ -58,6 +58,23 @@
                                 @endif
                             </div>
                         </div>
+                        
+                        <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">
+                            <label for="cargo" class="col-md-4 control-label">Cargo</label>
+
+                            <div class="col-md-6">
+                            <select id="cargo" type="smallInteger" class="custom-select" name="cargo" value="{{ old('cargo') }}" required>
+                                <option selected> Administrador </option>
+                                <option> Comprador </option>
+                                <option> Comprador </option>
+                                @if ($errors->has('cargo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cargo') }}</strong>
+                                    </span>
+                                @endif
+                            </select>
+                            </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
                             <label for="role" class="col-md-4 control-label">Rol</label>
@@ -73,15 +90,6 @@
                                 @endif
                             </select>
                             </div>
-                            <!--<div class="col-md-6">
-                                <input id="role" type="smallInteger" class="form-control" name="role" value="{{ old('role') }}" required>
-
-                                @if ($errors->has('role'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('role') }}</strong>
-                                    </span>
-                                @endif
-                            </div>-->
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
