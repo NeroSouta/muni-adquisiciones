@@ -32,7 +32,6 @@ class UserController extends Controller
         $rules =[
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'role'=>'required',
             'rut'=>'required|string|max:13',
             'password' => 'nullable|min:6',
             'cargo'=>'cargo|string',
@@ -44,7 +43,6 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->cargo = $request->input('cargo');
-        $user->role = $request->input('role');
         $user->rut = $request->input('rut');
 
         /* No es obligación cambiar la contraseña, pero si desea hacerlo

@@ -66,9 +66,11 @@
                                 @if($user->role != 0)
                                 <option > Administrador </option>
                                 <option selected> Comprador </option>
+                                <option> Supervisor </option>
                                 @else
                                 <option selected> Administrador </option>
                                 <option> Comprador </option>
+                                <option> Supervisor </option>
                                 @endif
                                 @if ($errors->has('cargo'))
                                     <span class="help-block">

@@ -66,7 +66,7 @@
                             <select id="cargo" type="smallInteger" class="custom-select" name="cargo" value="{{ old('cargo') }}" required>
                                 <option selected> Administrador </option>
                                 <option> Comprador </option>
-                                <option> Comprador </option>
+                                <option> Supervisor </option>
                                 @if ($errors->has('cargo'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('cargo') }}</strong>

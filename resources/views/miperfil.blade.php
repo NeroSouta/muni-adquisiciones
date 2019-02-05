@@ -66,9 +66,11 @@
                                 @if(Auth::user()->role  != 0)
                                 <option > Administrador </option>
                                 <option selected> Comprador </option>
+                                <option> Supervisor </option>
                                 @else
                                 <option selected> Administrador </option>
                                 <option> Comprador </option>
+                                <option> Supervisor </option>
                                 @endif
                                 @if ($errors->has('cargo'))
                                     <span class="help-block">
@@ -78,39 +80,7 @@
                             </select>
                             </div>
                         </div>
-                        
-                        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-                            <label for="role" class="col-md-4 control-label">Rol</label>
 
-                            <div class="col-md-6">
-                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ Auth::user()->role }}" required>
-                                @if(Auth::user()->role  != 0)
-                                <option > 0 </option>
-                                <option selected> 1 </option>
-                                @else
-                                 <option selected > 0 </option>
-                                <option > 1 </option>
-                                @endif
-                                @if ($errors->has('role'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('role') }}</strong>
-                                    </span>
-                                @endif
-                            </select>
-                            </div>
-
-
-
-                            <!--<div class="col-md-6">
-                                <input id="role" type="smallInteger" class="form-control" name="role" value="{{ old('role') }}" required>
-
-                                @if ($errors->has('role'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('role') }}</strong>
-                                    </span>
-                                @endif
-                            </div>-->
-                        </div>
                            <div class="form-group">
                             <label for="password" class="col-md-4 control-label">Contraseña <em> Ingrese en caso de desear cambiar la contraseña </em></label>
 

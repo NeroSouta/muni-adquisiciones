@@ -15,6 +15,12 @@ class CreateConfigurationsTable extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->smallInteger('role')->default(2); // rol 0 = admin; rol 1 = comprador
+            $table->string('rut')->unique();
+            $table->string('cargo');
             $table->timestamps();
         });
     }
