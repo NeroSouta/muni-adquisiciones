@@ -44,4 +44,13 @@ class User extends Authenticatable
         if($rut)
             return $query->where('rut', 'LIKE', "%$rut%");
     }
+
+    public function configurations(){
+        $this->hasMany('App\Configuration');
+    }
+
+    public function directions()
+    {
+        return $this->hasOne('App\Direction');
+    }
 }
