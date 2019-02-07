@@ -167,6 +167,8 @@
                 </tr>
                 @endif
                 @endforeach
+
+                {{ $users->links() }}
             </tbody>
         </table>
         </div>

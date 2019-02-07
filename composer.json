@@ -10,7 +10,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
         "laraveles/spanish": "^1.1",
-        "phpoffice/phpword": "^0.16.0"
+        "phpoffice/phpword": "^0.16.0",
+        "doctrine/inflector": "1.1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
