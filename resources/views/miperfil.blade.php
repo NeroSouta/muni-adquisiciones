@@ -30,20 +30,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
-                            <label for="rut" class="col-md-4 control-label">Rut</label>
-
-                            <div class="col-md-6">
-                                <input id="rut" type="text" class="form-control" name="rut" value="{{ Auth::user()->rut }}" required autofocus>
-
-                                @if ($errors->has('rut'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('rut') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
@@ -55,29 +41,6 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                         <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">
-                            <label for="cargo" class="col-md-4 control-label">Cargo</label>
-
-                            <div class="col-md-6">
-                            <select id="cargo" type="smallInteger" class="custom-select" name="cargo" value="{{ old('cargo') }}" required>
-                                @if(Auth::user()->role  != 0)
-                                <option > Administrador </option>
-                                <option selected> Comprador </option>
-                                <option> Supervisor </option>
-                                @else
-                                <option selected> Administrador </option>
-                                <option> Comprador </option>
-                                <option> Supervisor </option>
-                                @endif
-                                @if ($errors->has('cargo'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('cargo') }}</strong>
-                                    </span>
-                                @endif
-                            </select>
                             </div>
                         </div>
 

@@ -32,9 +32,7 @@ class UserController extends Controller
         $rules =[
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'rut'=>'required|string|max:13',
             'password' => 'nullable|min:6',
-            'cargo'=>'cargo|string',
         ];
 
 
@@ -42,8 +40,6 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->cargo = $request->input('cargo');
-        $user->rut = $request->input('rut');
 
         /* No es obligación cambiar la contraseña, pero si desea hacerlo
         se llama a la función Email, la cual le envía un email al usuario

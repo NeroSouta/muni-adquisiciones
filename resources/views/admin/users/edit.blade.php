@@ -58,40 +58,24 @@
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">
-                            <label for="cargo" class="col-md-4 control-label">Cargo</label>
-
-                            <div class="col-md-6">
-                            <select id="cargo" type="smallInteger" class="custom-select" name="cargo" value="{{ old('cargo') }}" required>
-                                @if($user->role != 0)
-                                <option > Administrador </option>
-                                <option selected> Comprador </option>
-                                <option> Supervisor </option>
-                                @else
-                                <option selected> Administrador </option>
-                                <option> Comprador </option>
-                                <option> Supervisor </option>
-                                @endif
-                                @if ($errors->has('cargo'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('cargo') }}</strong>
-                                    </span>
-                                @endif
-                            </select>
-                            </div>
-                        </div>
 
                         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
                             <label for="role" class="col-md-4 control-label">Rol</label>
 
                             <div class="col-md-6">
                             <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ $user->role }}" required>
-                                @if($user->role != 0)
-                                <option > 0 </option>
-                                <option selected> 1 </option>
+                                @if($user->role == 1)
+                                <option value ="0" > Administrador </option>
+                                <option value ="1" selected> Funcionario </option>
+                                <option value ="2" > Supervisor </option>
+                                @elseif($user->role == 0)
+                                 <option value ="0" selected > Administrador </option>
+                                <option value ="1" > Funcionario </option>
+                                <option value ="2" > Supervisor </option>
                                 @else
-                                 <option selected > 0 </option>
-                                <option > 1 </option>
+                                <option value ="0"  > Administrador </option>
+                                <option value ="1" > Funcionario </option>
+                                <option value ="2" selected > Supervisor </option>
                                 @endif
                                 @if ($errors->has('role'))
                                     <span class="help-block">

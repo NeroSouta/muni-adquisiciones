@@ -24,6 +24,5 @@ $factory->define(App\User::class, function (Faker $faker) {
         'role' => 1,
         'rut' => str_random(13),
         'remember_token' => str_random(10),
-        'cargo' => 'Comprador'  
     ];
 });

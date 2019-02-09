@@ -38,7 +38,6 @@ class UserController extends Controller
             'password' => 'required|string|min:6',
             'role'=>'required',
             'rut'=>'required|string|max:13|unique:users',
-            'cargo'=>'required|string',
 
         ];
 
@@ -48,7 +47,6 @@ class UserController extends Controller
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->cargo = $request->input('cargo');
         $user->role = $request->input('role');
         $user->rut = $request->input('rut');
         $user->password = bcrypt($request->input('password'));
@@ -89,7 +87,6 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255',
             'role'=>'required',
             'rut'=>'required|string|max:13',
-            'cargo'=>'required|string',
         ];
 
 
@@ -97,7 +94,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->cargo = $request->input('cargo');
         $user->role = $request->input('role');
         $user->rut = $request->input('rut');
 

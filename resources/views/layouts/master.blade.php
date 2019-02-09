@@ -64,7 +64,7 @@
       @if (Auth::guest())
       <ul class="navbar-nav mr-auto">
         </ul>
-      @elseif(Auth::user()->role != 0)
+      @elseif(Auth::user()->role == 1 or Auth::user()->role == 2)
       <ul class="navbar-nav mr-auto">
         <li class="dropdown">
           <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -126,6 +126,13 @@
                             </li>
                         @else
                             <li class="dropdown">
+                                @if (Auth::user()->role == 1)
+                                  <a class="navbar-brand">Funcionario</a>
+                                @elseif (Auth::user()->role == 0)
+                                  <a class="navbar-brand">Administrador</a>
+                                @else
+                                  <a class="navbar-brand">Supervisor</a>
+                                @endif
                                 <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} 
                                 </a>
