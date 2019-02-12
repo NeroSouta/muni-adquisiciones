@@ -35,6 +35,7 @@ class UserController extends Controller
             'password' => 'nullable|min:6',
         ];
 
+        
 
         $this->validate($request, $rules);
         $user = User::find(Auth::user()->id);

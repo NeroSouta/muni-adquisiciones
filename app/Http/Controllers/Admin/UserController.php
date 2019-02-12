@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\User; 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Mailable;
+use Malahierba\ChileRut\Facades\ChileRut;
 /**
 * Es el controlador del administrador del sistema.
 *
@@ -37,13 +38,17 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
             'role'=>'required',
-            'rut'=>'required|string|max:13|unique:users',
+            'rut' => 'required|string|min:9',
 
         ];
 
 
+        $chilerut = new ChileRut;
+        $validarut = $request->input('rut');
         $this->validate($request, $rules);
 
+        if ($chilerut::check($validarut))
+        {
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -62,6 +67,11 @@ class UserController extends Controller
 
 
         return back()->with('notification', 'Usuario registrado exitosamente.');
+       } 
+        else {
+           return back()->with('danger', 'El rut ingresado no es valido');
+        }
+        
     }
 
     /**
