@@ -15,7 +15,6 @@
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
-
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
@@ -29,7 +28,6 @@
 
                         <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
                             <label for="rut" class="col-md-4 control-label">Rut</label>
-
                             <div class="col-md-6">
                                 <input id="rut" type="text" class="form-control" name="rut" value="{{ old('rut') }}" placeholder="Ej: 11111111-1" required autofocus>
 
@@ -56,10 +54,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-                            <label for="role" class="col-md-4 control-label">Role</label>
+                            <label for="role" class="col-md-4 control-label">Rol</label>
 
                             <div class="col-md-6">
-                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ old('role') }}" required>
+                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ old('role') }}" style="height:40px;text-align:left;padding-right:10px" >
                                 <option value ="0" > Administrador </option>
                                 <option value ="1" selected> Funcionario </option>
                                 <option value ="2" > Supervisor </option>
@@ -70,17 +68,18 @@
                                 @endif
                             </select>
                             </div>
-                            <!--<div class="col-md-6">
-                                <input id="role" type="smallInteger" class="form-control" name="role" value="{{ old('role') }}" required>
-
-                                @if ($errors->has('role'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('role') }}</strong>
-                                    </span>
-                                @endif
-                            </div>-->
                         </div>
 
+{{--
+                        <div class="form-group{{ $errors->has('id_directions') ? ' has-error' : '' }} ">
+                            
+                            <label for="id_directions" class="col-md-4 control-label">Dirección</label>
+                            <div class="col-md-6">
+                            {!! Form::select( old('id_directions'), array('0' => 'dideco', '1' => 'adquisicion')/*$direccion->pluck('name')*/, null, [ 'class'=>'form-control', 'type'=>'smallInteger' ,'id'=>'id_directions' ,'placeholder'=>'Selecciona', 'style'=>'height:40px;text-align:left;padding-right:10px;' ]) !!}
+                                
+                            </div>        
+                        </div>    
+--}}
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

@@ -1,34 +1,29 @@
 <!doctype html>
 <html lang="en" class="h-100">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name= "viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=no" > <!-- Para el uso de Bootstrap CSS -->  
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="Jekyll v3.8.5">
-    <link rel="icon" type="image/x-icon" href="{{asset('')}}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <!-- Nueva wa -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <link rel="icon" type="image/x-icon" href="{{asset('images/icono_sin_fondo.png')}}">
+    
+    
+    <!--CALENDARIO-->
+    {{--!! Html::script('js/Configuracion.js') !!--}} 
+    {!! Html::script('js/jquery-3.2.1.min.js') !!}
+    {{-- DE PAGINA OFIAL BOOTSTRAP 4.0 PARA SU USO--}}
+    <link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity= "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin= "anonymous" >
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" integrity= "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin= "anonymous">
+    <script src= "https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity= "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin= "anonymous" ></script> 
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity= "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin= "anonymous" ></script> 
+    <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity= "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin= "anonymous" ></script> 
+   
 
-
-
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Portal del Departamento de Adquisiciones de la Municipalidad de Arica</title>
 
-    <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-
+    
+    {{-- ESTILO NO DEFINIDO SU USO --}}
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -40,21 +35,27 @@
           font-size: 3.5rem;
         }
       }
+
+      
+
     </style>
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="//bootswatch.com/3/cerulean/bootstrap.css">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+</head>
 
-  </head>
-  <body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100">
     <header id="header-principal">
-  <!-- Fixed navbar -->
-  <div class="contenedor-nav">
-  <nav id="nav-principal" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #0062d1">
+    
+    <!-- Fixed navbar MENU INICIAL ENCABEZADO -->
+    <div class="contenedor-nav">
+    <nav id="nav-principal" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #0062d1">
     <div class="col col-lg-2"" id="contenedor-logo">
-                      <a id="logo1" href="{{ url('/') }}">
-      <img style="width: " src="images/logos-02.png">
-    </a>
+        <a id="logo1" href="{{ url('/') }}">
+          <img style="width: " src="{{asset('images/logos-02.png')}}">
+
+        </a>
     </div>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +73,7 @@
           </a>
           <ul class="dropdown-menu" role="menu">
                   <li>
-                    <a href="#">
+                    <a href="{{ url('/configuracion-informe') }}">
                      Crear Configuración de Informe
                     </a>
                   </li>
@@ -91,7 +92,7 @@
           </a>
           <ul class="dropdown-menu" role="menu">
                   <li>
-                    <a href="#">
+                    <a href="{{ url('/configuracion-informe') }}">
                      Crear Configuración de Informe
                     </a>
                   </li>
@@ -127,11 +128,11 @@
                         @else
                             <li class="dropdown">
                                 @if (Auth::user()->role == 1)
-                                  <a class="navbar-brand">Funcionario</a>
+                                  <a class="navbar-brand" style="color: #fff">Funcionario</a>
                                 @elseif (Auth::user()->role == 0)
-                                  <a class="navbar-brand">Administrador</a>
+                                  <a class="navbar-brand" style="color: #fff">Administrador</a>
                                 @else
-                                  <a class="navbar-brand">Supervisor</a>
+                                  <a class="navbar-brand" style="color: #fff">Supervisor</a>
                                 @endif
                                 <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} 
@@ -139,7 +140,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="/miperfil">
+                                        <a href="{{ url('/miperfil') }}">
                                             Mi Perfil
                                         </a>
                                     </li>
@@ -159,30 +160,23 @@
                         @endif
      </ul>
     </div>
-  </nav>
-  </div>
-</header>
+        </nav>
+        </div>
+    </header>
 
-<!-- Begin page content -->
-<main role="main" class="flex-shrink-0">
-  @yield('content')
-</main>
+    <!-- Begin page content RESTO DE LA PAGINA HIJO -->
+    <main role="main" class="flex-shrink-0">
+        @yield('content')
+    </main>
 
-<footer class="footer mt-auto py-3">
-  <div class="container">
-    <span class="text-muted">Software de exclusivo uso para el Departamento de Adquisición de la Ilustre
-    Municipalidad de Arica.</span>
-  </div>
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-muted">Software de exclusivo uso para el Departamento de Adquisición de la Ilustre
+        Municipalidad de Arica.</span>
+      </div>
+    </footer>
 
 
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
-    </body>
+</body>
 </html>

@@ -9,11 +9,11 @@ class Standard extends Model
     protected $table = 'standards';
 
     protected $fillable = [
-        'name', 'description', 'text',
+        'name', 'porcentaje' , 'description',
     ];
 
      public function configurations()
     {
-        return $this->belongsToMany('App\Configuration')->withTimestamps();;
+        return $this->belongsTo('App\Configuration');
     }
 }

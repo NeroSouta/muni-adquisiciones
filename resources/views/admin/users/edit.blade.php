@@ -63,7 +63,7 @@
                             <label for="role" class="col-md-4 control-label">Rol</label>
 
                             <div class="col-md-6">
-                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ $user->role }}" required>
+                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ old('role') }}" style="height:40px;text-align:left;padding-right:10px" >
                                 @if($user->role == 1)
                                 <option value ="0" > Administrador </option>
                                 <option value ="1" selected> Funcionario </option>
@@ -106,6 +106,8 @@
             </div>
         </div>
     </div>
+
+{{--
     <div class="panel panel-default">
         <div class="panel-heading">Configuraciones del Usuario</div>
         <div class="panel-body">
@@ -140,5 +142,6 @@
         </table>
         </div>
     </div>
+--}}
 </div>
 @endsection

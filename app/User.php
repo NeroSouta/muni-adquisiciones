@@ -15,7 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-
+    //protected $table = 'usuario';
     protected $fillable = [
         'name', 'email', 'password','role', 'rut',
     ];
@@ -46,11 +46,11 @@ class User extends Authenticatable
     }
 
     public function configurations(){
-        $this->hasMany('App\Configuration');
+        return $this->hasMany('App\Configuration');
     }
 
-    public function directions()
-    {
-        return $this->hasOne('App\Direction');
-    }
+//    public function directions()
+//    {
+//        return $this->belongsTo('App\Direction');
+//    }
 }

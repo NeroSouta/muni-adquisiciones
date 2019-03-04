@@ -15,6 +15,8 @@ class CreateConfigurationStandardTable extends Migration
     {
         Schema::create('configuration_standard', function (Blueprint $table) {
             $table->increments('id');
+            $table->interger('porcentaje');
+             $table->text('evaluaciondescripcion');
             $table->integer('configuration_id')->unsigned();
             $table->foreign('configuration_id')->references('id')->on('configurations');
             $table->integer('standard_id')->unsigned();

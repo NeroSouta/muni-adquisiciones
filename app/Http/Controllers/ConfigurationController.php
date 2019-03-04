@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Configuration;
 use Illuminate\Http\Request;
+use App\Direction;
 
 class ConfigurationController extends Controller
 {
@@ -14,7 +15,8 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-        //
+        $direccion = Direction::all();
+        return view('configuration',compact('direccion'));
     }
 
     /**

@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
+//            $table->integer('id_directions')->unsigned();           
+//            $table->foreign('id_directions')->references('id')->on('directions');
+
         });
     }
 

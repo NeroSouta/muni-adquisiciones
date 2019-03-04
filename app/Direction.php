@@ -10,13 +10,19 @@ class Direction extends Model
 	protected $table = 'directions';
 
     protected $fillable = [
-        'id_configuration', 'name',
+        'name',
     ];
 
 
 
-    public function user()
+//    public function user()
+//    {
+//        return $this->hasMany('App\User');
+//    }
+
+    public function configuration()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMany('App\Configuration');
     }
+
 }

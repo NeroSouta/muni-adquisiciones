@@ -41,10 +41,14 @@ class CreateConfigurationsTable extends Migration
             $table->integer('TelefonoResponsableContrato');
             $table->boolean('ProhibicionSubcontrato');
             $table->string('estado');
-            $table->integer('user_id_creador')->unsigned()->nullable();
+            $table->text('Observaciones_Revision');
+            $table->integer('user_id_creador')->unsigned();
+            $table->integer('id_directions')->unsigned();
+            
             $table->foreign('user_id_creador')->references('id')->on('users');
-            $table->integer('user_id_editor');
+            $table->foreign('id_directions')->references('id')->on('directions');
             $table->timestamps();
+
         });
     }
 

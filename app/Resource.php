@@ -10,12 +10,11 @@ class Resource extends Model
     protected $table = 'resources';
 
     protected $fillable = [
-        'name', 'cod',
+        'name', 'unidad', 'cantidad', 'especificacionproducto', 'configuration_id',
     ];
-
-
+           
     public function configurations()
     {
-        return $this->belongsToMany('App\Configuration')->withTimestamps();;
+        return $this->belongsTo('App\Configuration');
     }
 }

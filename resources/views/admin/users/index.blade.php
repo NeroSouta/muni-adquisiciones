@@ -67,7 +67,7 @@
                             <label for="role" class="col-md-4 control-label">Rol</label>
 
                             <div class="col-md-6">
-                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ old('role') }}" required>
+                            <select id="role" type="smallInteger" class="custom-select" name="role" value="{{ old('role') }}" style="height:40px;text-align:left;padding-right:10px" required>
                                 <option value ="0" > Administrador </option>
                                 <option value ="1" selected> Funcionario </option>
                                 <option value ="2" > Supervisor </option>
@@ -143,11 +143,13 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        <a href="/usuario/{{$user->id}}" class="btn btn-primary">
+                        {{--<a href="/usuario/{{$user->id}}" class="btn btn-primary">--}}
+                        <a href="{{url('usuario', ['id' => $user->id])}}" class="btn btn-primary">
                         Editar
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
-                        <a href="/usuario/{{$user->id}}/eliminar" class="btn btn-danger">
+                        <a href="{{$url = route('delete', ['id' => $user->id])}}"  class="btn btn-danger">
+                        {{--href="/usuario/{{$user->id}}/eliminar"--}}
                         Borrar
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>

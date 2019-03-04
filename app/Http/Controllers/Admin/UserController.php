@@ -39,7 +39,6 @@ class UserController extends Controller
             'password' => 'required|string|min:6',
             'role'=>'required',
             'rut' => 'required|string|min:9',
-
         ];
 
 
@@ -55,6 +54,7 @@ class UserController extends Controller
         $user->role = $request->input('role');
         $user->rut = $request->input('rut');
         $user->password = bcrypt($request->input('password'));
+
 
         $user->save();
 

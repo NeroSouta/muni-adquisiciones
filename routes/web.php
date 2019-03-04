@@ -33,9 +33,8 @@ Route::get('generarplantilla', 'DocumentController@generarplantilla');
 Route::get('/configuraciones', function () {
     return view('configurations');
 });
-Route::get('/configuracion-informe', function () {
-    return view('configuration');
-});
+//Generar Configuracion
+Route::get('/configuracion-informe', 'ConfigurationController@index');
 Route::get('/start', 'HomeController@start'); //Extra, para jugar
 
 // El perfil de cada usuario del sistema 
@@ -53,7 +52,7 @@ Route::group(['middleware' => 'admin', 'namespace' =>'Admin'], function () {
 	Route::get('/usuarios', 'UserController@share')->name('buscar');
 	Route::post('/usuario/{id}', 'UserController@update');
 
-	Route::get('/usuario/{id}/eliminar', 'UserController@delete');
+	Route::get('/usuario/{id}/eliminar', 'UserController@delete')->name('delete');
 
 
 });

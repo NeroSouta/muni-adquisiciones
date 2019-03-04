@@ -15,8 +15,13 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cod');
             $table->string('name');
+            $table->string('unidad');
+            $table->integer('cantidad');
+            $table->text('especificacionproducto');
+
+            $table->integer('configuration_id')->unsigned();
+            $table->foreign('configuration_id')->references('id')->on('configurations');
             $table->timestamps();
         });
     }

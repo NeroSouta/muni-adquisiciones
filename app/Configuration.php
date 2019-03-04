@@ -10,7 +10,7 @@ class Configuration extends Model
     protected $table = 'configurations';
 
     protected $fillable = [
-        'n_decreto', 'date', 'name','code_L', 'description_L', 'type_L', 'TipoConvocatoria', 'Moneda', 'Etapa', 'contract', 'EstadoPublicidadOfertas', 'EstimacionBase', 'FuenteFinanciamiento', 'MontoEstimado', 'EsRenovable', 'JustificaRenovacion', 'Observaciones', 'DuracionContrato', 'TiempoContrato', 'NombreResponsablePago', 'EmailResponsablePago', 'NombreResponsableContrato', 'EmailResponsableContrato', 'TelefonoResponsableContrato', 'ProhibicionSubcontrato', 'estado', 'user_id_editor', 'user_id_creador',
+        'n_decreto', 'date', 'name','code_L', 'description_L', 'type_L', 'TipoConvocatoria', 'Moneda', 'Etapa', 'contract', 'EstadoPublicidadOfertas', 'EstimacionBase', 'FuenteFinanciamiento', 'MontoEstimado', 'EsRenovable', 'JustificaRenovacion', 'Observaciones', 'DuracionContrato', 'TiempoContrato', 'NombreResponsablePago', 'EmailResponsablePago', 'NombreResponsableContrato', 'EmailResponsableContrato', 'TelefonoResponsableContrato', 'ProhibicionSubcontrato', 'estado', '  Observaciones_Revision', 'user_id_creador', 'id_directions',
     ];
 
     /**
@@ -21,16 +21,23 @@ class Configuration extends Model
 
 
     public function user(){
-    	$this->belongsTo('App\User');
+    	return $this->belongsTo('App\User');/*->withTimestamps();;  se agregaba si era mucho a mucho*/
+    }
+
+    public function directions()
+    {
+        return $this->belongsTo('App\Direction');
     }
 
     public function resources()
     {
-        return $this->belongsToMany('App\Resource')->withTimestamps();;
+        return $this->hasMany('App\Resource');
     }
 
     public function standards()
     {
-        return $this->belongsToMany('App\Standard')->withTimestamps();;
+        return $this->hasMany('App\Standard');
     }
+
+    
 }

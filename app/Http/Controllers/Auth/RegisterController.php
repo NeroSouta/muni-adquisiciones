@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -45,6 +46,27 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+/*
+    public function showRegistrationForm()
+    {
+        
+        $direccion = Direction::all();
+        return view('auth.register',compact('direccion'));
+    }
+*/
+/*
+    public function register(Request $request)
+    {   //dd($request);
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+*/
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -56,7 +78,18 @@ class RegisterController extends Controller
 
         ]);
     }
+/*
+    protected function guard()
+    {
+        return Auth::guard();
+    }
 
+    protected function registered(Request $request, $user)
+    {
+        //
+    }
+
+*/
     /**
      * Create a new user instance after a valid registration.
      *
@@ -64,13 +97,24 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+
         return User::create([
             'name' => $data['name'],
             'rut' => $data['rut'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'role' => $data['role'],
+
         ]);
     }
+/*
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+    }*/
 }

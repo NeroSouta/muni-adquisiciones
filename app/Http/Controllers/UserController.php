@@ -25,10 +25,10 @@ class UserController extends Controller
     / Como argumento toma los valores que se entregan en la vista, los cuales coinciden
     con los del usuario.
     */
-        public function miupdate(Request $request){
+    public function miupdate(Request $request){
         
         // Estas son las reglas que tendrá el usuario modificado, las cuales pueden ser modificadas
-            ini_set('max_execution_time', 60);
+        ini_set('max_execution_time', 60);
         $rules =[
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',

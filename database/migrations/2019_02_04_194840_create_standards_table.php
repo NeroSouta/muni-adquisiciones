@@ -16,8 +16,10 @@ class CreateStandardsTable extends Migration
         Schema::create('standards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-             $table->text('description');
-              $table->text('text');
+            $table->integer('porcentaje');
+            $table->text('descripcion');  
+            $table->integer('configuration_id')->unsigned();
+            $table->foreign('configuration_id')->references('id')->on('configurations');
             $table->timestamps();
         });
     }

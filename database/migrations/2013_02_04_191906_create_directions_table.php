@@ -16,8 +16,7 @@ class CreateDirectionsTable extends Migration
         Schema::create('directions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('id_configuration')->unsigned()->nullable();
-            $table->foreign('id_configuration')->references('id')->on('configurations');
+            
             $table->timestamps();
         });
     }
